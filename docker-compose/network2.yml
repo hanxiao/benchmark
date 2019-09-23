@@ -1,0 +1,16 @@
+version: '3.4'
+services:
+  Frontend00:
+    image: gnes/gnes:latest-alpine
+    command: frontend --grpc_port 5566 --port_out 53463 --socket_out PUSH_BIND --port_in
+      57908 --socket_in PULL_BIND --route_table
+    ports:
+    - 5566:5566
+  Router0:
+    image: gnes/gnes:latest-alpine
+    command: route --port_in 53463 --socket_in PULL_CONNECT --port_out 57909
+      --socket_out PUSH_BIND --host_in Frontend00 --host_out Frontend00 --yaml_path BaseRouter
+  Router1:
+    image: gnes/gnes:latest-alpine
+    command: route --port_in 57909 --socket_in PULL_CONNECT --port_out 57908
+      --socket_out PUSH_CONNECT --host_in Router0 --host_out Frontend00 --yaml_path BaseRouter
