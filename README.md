@@ -48,7 +48,7 @@ The workflow is as follows:
   </thead>
   <tbody>
     <tr>
-      <td><code>gnes-ai/gnes@fda7f96</code></td>
+      <td>gnes-ai/gnes@fda7f96</td>
       <td><code>latest-alpine</code></td>
       <td>0.250</td>
       <td>0.107</td>
@@ -93,7 +93,7 @@ It simulates a pipeline with uneven workload.
   </thead>
   <tbody>
     <tr>
-      <td><code>gnes-ai/gnes@fda7f96</code></td>
+      <td>gnes-ai/gnes@fda7f96</td>
       <td><code>latest-alpine</code></td>
       <td>24.579</td>
       <td>0.072</td>
@@ -137,7 +137,7 @@ The workflow is as follows:
   </thead>
   <tbody>
     <tr>
-      <td><code>gnes-ai/gnes@fda7f96</code></td>
+      <td>gnes-ai/gnes@fda7f96</td>
       <td><code>latest-alpine</code></td>
       <td>0.281</td>
       <td>0.121</td>
@@ -181,7 +181,7 @@ It simulates a parallel pipeline with heavy workload.
   </thead>
   <tbody>
     <tr>
-      <td><code>gnes-ai/gnes@fda7f96</code></td>
+      <td>gnes-ai/gnes@fda7f96</td>
       <td><code>latest-alpine</code></td>
       <td>11.007</td>
       <td>0.070</td>
