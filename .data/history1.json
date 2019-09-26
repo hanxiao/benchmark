@@ -1,0 +1,2 @@
+{"f->r1 trans": 0.05151844, "f:recv interval": 0.11722655102040817, "f:send interval": 0.11885442857142857, "r1->r2 trans": 0.049806340000000004, "r2->f trans": 0.17712628, "roundtrip": 0.29645784000000003, "timestamp": 1569491089.941833, "version": "latest-alpine"}
+{"f->r1 trans": 0.05441734, "f:recv interval": 0.11604804081632654, "f:send interval": 0.11623136734693876, "r1->r2 trans": 0.049166480000000005, "r2->f trans": 0.150636, "roundtrip": 0.2603755, "timestamp": 1569491173.606679, "version": "latest-alpine"}
