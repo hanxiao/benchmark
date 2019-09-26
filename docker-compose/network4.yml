@@ -10,8 +10,9 @@ services:
       - ../.data:/workspace
   Router0:
     image: gnes/gnes:${GNES_IMG_TAG}
-    command: route --port_in 53463 --socket_in PULL_CONNECT --port_out 57909
-      --socket_out PUSH_CONNECT --host_in Frontend0 --host_out Router1 --yaml_path BaseRouter
+    command: >
+      route --port_in 53463 --socket_in PULL_CONNECT --port_out 57909
+      --socket_out PUSH_CONNECT --host_in Frontend0 --host_out Router1 --yaml_path "!BlockRouter {parameters: {sleep_sec: 1}}"
     deploy:
       replicas: 2
   Router1:

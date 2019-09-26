@@ -1,4 +1,5 @@
-FROM gnes/gnes:latest-alpine
+ARG GNES_IMG_TAG
+FROM gnes/gnes:${GNES_IMG_TAG}
 
 ADD *.py ./
 
