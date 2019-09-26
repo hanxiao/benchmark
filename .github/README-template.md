@@ -17,3 +17,4 @@ make pull && make build && make test d=500 b=10 s=1000000 && make clean
 
 The client will generate 500 documents and send them in 10 batches, each document has the size of 1MB. Hence each request is about 50MB.
 
+All units are millisecond, the smaller the better.

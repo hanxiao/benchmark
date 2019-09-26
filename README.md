@@ -17,7 +17,7 @@ make pull && make build && make test d=500 b=10 s=1000000 && make clean
 
 The client will generate 500 documents and send them in 10 batches, each document has the size of 1MB. Hence each request is about 50MB.
 
-
+All units are millisecond, the smaller the better.
 
 ## Case 1: Unblocking Flow
 
@@ -32,46 +32,30 @@ The workflow is as follows:
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
-      <th></th>
+      <th>version_vcs</th>
+      <th>version_tag</th>
       <th>roundtrip</th>
       <th>f:send interval</th>
       <th>f:recv interval</th>
-      <th>f-&gt;r1 trans</th>
-      <th>r1-&gt;r2 trans</th>
-      <th>r2-&gt;f trans</th>
-    </tr>
-    <tr>
-      <th>timestamp</th>
-      <th>version</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>f->r1 trans</th>
+      <th>r1->r2 trans</th>
+      <th>r2->f trans</th>
+      <th>timestamp_build</th>
+      <th>timestamp_eval</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2019-09-26 09:44:49.941833</th>
-      <th>latest-alpine</th>
-      <td>0.296</td>
-      <td>0.119</td>
-      <td>0.117</td>
-      <td>0.052</td>
-      <td>0.050</td>
-      <td>0.177</td>
-    </tr>
-    <tr>
-      <th>2019-09-26 09:46:13.606679</th>
-      <th>latest-alpine</th>
-      <td>0.260</td>
-      <td>0.116</td>
-      <td>0.116</td>
-      <td>0.054</td>
-      <td>0.049</td>
-      <td>0.151</td>
+      <td><code>fda7f96</code></td>
+      <td><code>latest-alpine</code></td>
+      <td>0.250</td>
+      <td>0.107</td>
+      <td>0.091</td>
+      <td>0.056</td>
+      <td>0.041</td>
+      <td>0.148</td>
+      <td>2019-09-26 11:17:55</td>
+      <td>2019-09-26 11:37:08.995740</td>
     </tr>
   </tbody>
 </table>
@@ -93,36 +77,30 @@ It simulates a pipeline with uneven workload.
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
-      <th></th>
+      <th>version_vcs</th>
+      <th>version_tag</th>
       <th>roundtrip</th>
       <th>f:send interval</th>
       <th>f:recv interval</th>
-      <th>f-&gt;r1 trans</th>
-      <th>r1-&gt;r2 trans</th>
-      <th>r2-&gt;f trans</th>
-    </tr>
-    <tr>
-      <th>timestamp</th>
-      <th>version</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>f->r1 trans</th>
+      <th>r1->r2 trans</th>
+      <th>r2->f trans</th>
+      <th>timestamp_build</th>
+      <th>timestamp_eval</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2019-09-26 09:52:32.935686</th>
-      <th>latest-alpine</th>
-      <td>24.708</td>
+      <td><code>fda7f96</code></td>
+      <td><code>latest-alpine</code></td>
+      <td>24.579</td>
       <td>0.072</td>
-      <td>1.037</td>
+      <td>1.028</td>
+      <td>0.039</td>
+      <td>23.490</td>
       <td>0.040</td>
-      <td>23.194</td>
-      <td>0.045</td>
+      <td>2019-09-26 11:17:55</td>
+      <td>2019-09-26 11:59:43.815398</td>
     </tr>
   </tbody>
 </table>
@@ -143,36 +121,30 @@ The workflow is as follows:
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
-      <th></th>
+      <th>version_vcs</th>
+      <th>version_tag</th>
       <th>roundtrip</th>
       <th>f:send interval</th>
       <th>f:recv interval</th>
-      <th>f-&gt;r1 trans</th>
-      <th>r1-&gt;r2 trans</th>
-      <th>r2-&gt;f trans</th>
-    </tr>
-    <tr>
-      <th>timestamp</th>
-      <th>version</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>f->r1 trans</th>
+      <th>r1->r2 trans</th>
+      <th>r2->f trans</th>
+      <th>timestamp_build</th>
+      <th>timestamp_eval</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2019-09-26 10:06:10.805672</th>
-      <th>latest-alpine</th>
-      <td>0.341</td>
-      <td>0.151</td>
-      <td>0.145</td>
-      <td>0.067</td>
-      <td>0.058</td>
-      <td>0.206</td>
+      <td><code>fda7f96</code></td>
+      <td><code>latest-alpine</code></td>
+      <td>0.281</td>
+      <td>0.121</td>
+      <td>0.119</td>
+      <td>0.057</td>
+      <td>0.045</td>
+      <td>0.173</td>
+      <td>2019-09-26 11:17:55</td>
+      <td>2019-09-26 12:01:11.401479</td>
     </tr>
   </tbody>
 </table>
@@ -193,36 +165,30 @@ It simulates a parallel pipeline with heavy workload.
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
-      <th></th>
+      <th>version_vcs</th>
+      <th>version_tag</th>
       <th>roundtrip</th>
       <th>f:send interval</th>
       <th>f:recv interval</th>
-      <th>f-&gt;r1 trans</th>
-      <th>r1-&gt;r2 trans</th>
-      <th>r2-&gt;f trans</th>
-    </tr>
-    <tr>
-      <th>timestamp</th>
-      <th>version</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>f->r1 trans</th>
+      <th>r1->r2 trans</th>
+      <th>r2->f trans</th>
+      <th>timestamp_build</th>
+      <th>timestamp_eval</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2019-09-26 10:08:59.486160</th>
-      <th>latest-alpine</th>
-      <td>11.498</td>
-      <td>0.063</td>
-      <td>0.507</td>
-      <td>10.349</td>
+      <td><code>fda7f96</code></td>
+      <td><code>latest-alpine</code></td>
+      <td>11.007</td>
+      <td>0.070</td>
+      <td>0.506</td>
+      <td>9.856</td>
       <td>0.037</td>
-      <td>0.039</td>
+      <td>0.041</td>
+      <td>2019-09-26 11:17:55</td>
+      <td>2019-09-26 12:03:37.293088</td>
     </tr>
   </tbody>
 </table>

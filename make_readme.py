@@ -10,15 +10,26 @@ def load(id):
             c_md = fp.read()
 
         bh = pd.read_json('.data/history%d.json' % id, lines=True)
-        bh = bh.set_index(['timestamp', 'version'])
+        bh = bh.sort_values(by=['timestamp_build'])
 
-        return [c_md, bh.to_html(columns=['roundtrip',
-                                          'f:send interval',
-                                          'f:recv interval',
-                                          'f->r1 trans',
-                                          'r1->r2 trans',
-                                          'r2->f trans'],
-                                 float_format='{:4.3f}'.format)]
+        return [c_md, bh.to_html(
+            index=False,
+            escape=False,
+            columns=['version_vcs',
+                     'version_tag',
+                     'roundtrip',
+                     'f:send interval',
+                     'f:recv interval',
+                     'f->r1 trans',
+                     'r1->r2 trans',
+                     'r2->f trans',
+                     'timestamp_build',
+                     'timestamp_eval'],
+            float_format='{:4.3f}'.format,
+            formatters={
+                'version_vcs': lambda x: '<code>%s</code>' % x,
+                'version_tag': lambda x: '<code>%s</code>' % x,
+            })]
 
 
 results = [v for j in range(5) for v in load(j)]

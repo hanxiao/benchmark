@@ -57,8 +57,10 @@ if __name__ == '__main__':
         all_summaries.append(m.analyze())
 
     print('%40s\t%6s\t%6s\t%6s' % ('measure', 'best', 'worst', 'avg'))
-    final = {'version': os.environ.get('GNES_IMG_TAG', 'unknown'),
-             'timestamp': datetime.datetime.now().timestamp()}
+    final = {'version_tag': os.environ.get('GNES_IMG_TAG', ''),
+             'version_vcs': os.environ.get('GNES_VCS_VERSION', ''),
+             'timestamp_build': os.environ.get('GNES_BUILD_DATE', ''),
+             'timestamp_eval': datetime.datetime.now().timestamp()}
     for k in all_summaries[0].keys():
         worst = np.max([j[k] for j in all_summaries])
         best = np.min([j[k] for j in all_summaries])
