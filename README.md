@@ -2,7 +2,7 @@
 
 This repository tracks the network latency of different GNES versions. It gets updated when the [GNES master](https://github.com/gnes-ai/gnes) is updated or a new [GNES version is released](https://github.com/gnes-ai/gnes/releases). 
 
-Please don't write the content of this file manually, as it will be overrided during the update anyway. 
+Please don't change the content of this file manually, as it will be overwritten during the update anyway. 
 
 ## Run Test
 
@@ -19,7 +19,7 @@ The client will generate 500 documents and send them in 10 batches, each documen
 
 All units are millisecond, the smaller the better.
 
-## Case 1: Unblocking Flow
+## Case 1: Non-blocking Flow
 
 The workflow is as follows:
 
@@ -105,7 +105,7 @@ It simulates a pipeline with uneven workload.
   </tbody>
 </table>
 
-## Case 3: Parallel Unblocking Flow
+## Case 3: Parallel Non-blocking Flow
 
 The workflow is as follows:
 
@@ -155,7 +155,7 @@ The workflow is as follows:
 
 <p align="center">
 <a href="https://gnes.ai">
-<img src=".github/mermaid-diagram-20190926180109.svg" alt="workflow 3 in test"  width=50%>
+<img src=".github/mermaid-diagram-20190926180109.svg" alt="workflow 4 in test"  width=50%>
 </a>
 </p>
 
