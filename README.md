@@ -25,7 +25,7 @@ The workflow is as follows:
 
 <p align="center">
 <a href="https://gnes.ai">
-<img src=".github/mermaid-diagram-20190926170713.svg" alt="workflow 1 in test">
+<img src=".github/mermaid-diagram-20190926170713.svg" alt="workflow 1 in test" width=50%>
 </a>
 </p>
 
@@ -82,7 +82,7 @@ The workflow is as follows:
 
 <p align="center">
 <a href="https://gnes.ai">
-<img src=".github/mermaid-diagram-20190926175311.svg" alt="workflow 2 in test">
+<img src=".github/mermaid-diagram-20190926175311.svg" alt="workflow 2 in test" width=50%>
 </a>
 </p>
 
@@ -133,7 +133,7 @@ The workflow is as follows:
 
 <p align="center">
 <a href="https://gnes.ai">
-<img src=".github/mermaid-diagram-20190926175843.svg" alt="workflow 3 in test">
+<img src=".github/mermaid-diagram-20190926175843.svg" alt="workflow 3 in test"  width=50%>
 </a>
 </p>
 
@@ -183,7 +183,7 @@ The workflow is as follows:
 
 <p align="center">
 <a href="https://gnes.ai">
-<img src=".github/mermaid-diagram-20190926180109.svg" alt="workflow 3 in test">
+<img src=".github/mermaid-diagram-20190926180109.svg" alt="workflow 3 in test"  width=50%>
 </a>
 </p>
 
