@@ -6,7 +6,7 @@ Please don't change the content of this file manually, as it will be overwritten
 
 ## Run Test
 
-For example, to run the third test case on GNES version `latest-alpine`:  
+For example, to run the [third test case](#case-3-parallel-non-blocking-flow) on GNES version `latest-alpine`:  
 
 ```bash
 export GNES_IMG_TAG=latest-alpine
@@ -17,7 +17,9 @@ make pull && make build && make test d=500 b=10 s=1000000 && make clean
 
 The client will generate 500 documents and send them in 10 batches, each document has the size of 1MB. Hence each request is about 50MB.
 
-All units are millisecond, the smaller the better.
+Units are in millisecond, the smaller the better.
+
+`version_vcs` corresponds to the `gnes-ai/gnes@` commit's SHA hash.
 
 ## Case 1: Non-blocking Flow
 
@@ -46,7 +48,7 @@ The workflow is as follows:
   </thead>
   <tbody>
     <tr>
-      <td><code>fda7f96</code></td>
+      <td><code>gnes-ai/gnes@fda7f96</code></td>
       <td><code>latest-alpine</code></td>
       <td>0.250</td>
       <td>0.107</td>
@@ -91,7 +93,7 @@ It simulates a pipeline with uneven workload.
   </thead>
   <tbody>
     <tr>
-      <td><code>fda7f96</code></td>
+      <td><code>gnes-ai/gnes@fda7f96</code></td>
       <td><code>latest-alpine</code></td>
       <td>24.579</td>
       <td>0.072</td>
@@ -135,7 +137,7 @@ The workflow is as follows:
   </thead>
   <tbody>
     <tr>
-      <td><code>fda7f96</code></td>
+      <td><code>gnes-ai/gnes@fda7f96</code></td>
       <td><code>latest-alpine</code></td>
       <td>0.281</td>
       <td>0.121</td>
@@ -179,7 +181,7 @@ It simulates a parallel pipeline with heavy workload.
   </thead>
   <tbody>
     <tr>
-      <td><code>fda7f96</code></td>
+      <td><code>gnes-ai/gnes@fda7f96</code></td>
       <td><code>latest-alpine</code></td>
       <td>11.007</td>
       <td>0.070</td>

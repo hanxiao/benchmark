@@ -6,7 +6,7 @@ Please don't change the content of this file manually, as it will be overwritten
 
 ## Run Test
 
-For example, to run the third test case on GNES version `latest-alpine`:  
+For example, to run the [third test case](#case-3-parallel-non-blocking-flow) on GNES version `latest-alpine`:  
 
 ```bash
 export GNES_IMG_TAG=latest-alpine
@@ -17,4 +17,6 @@ make pull && make build && make test d=500 b=10 s=1000000 && make clean
 
 The client will generate 500 documents and send them in 10 batches, each document has the size of 1MB. Hence each request is about 50MB.
 
-All units are millisecond, the smaller the better.
+Units are in millisecond, the smaller the better.
+
+`version_vcs` corresponds to the `gnes-ai/gnes@` commit's SHA hash.
