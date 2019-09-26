@@ -27,7 +27,7 @@ def load(id):
                      'timestamp_eval'],
             float_format='{:4.3f}'.format,
             formatters={
-                'version_vcs': lambda x: 'gnes-ai/gnes@%s' % x,
+                'version_vcs': lambda x: '<code>%s</code>' % x,
                 'version_tag': lambda x: '<code>%s</code>' % x,
             })]
 
