@@ -3,11 +3,11 @@ services:
   Frontend0:
     image: gnes/gnes:${GNES_IMG_TAG}
     command: frontend --grpc_port 5566 --port_out 53463 --socket_out PUSH_BIND --port_in
-      57908 --socket_in PULL_BIND --dump_route /workspace/network.json
+      57908 --socket_in PULL_BIND --dump_route $BENCHMARK_DIR/.data/network.json
     ports:
       - 5566:5566
     volumes:
-      - ../.data:/workspace
+      - $SHARED_HOST_PATH:/workspace
   Router0:
     image: gnes/gnes:${GNES_IMG_TAG}
     command: >
