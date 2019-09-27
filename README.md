@@ -80,7 +80,7 @@ The ideal roundtrip latency is `0`. The smaller the better.
   </thead>
   <tbody>
     <tr>
-      <td><code>fda7f96</code></td>
+      <td><a href="https://github.com/gnes-ai/gnes@fda7f96"><code>fda7f96</code></a></td>
       <td>0.286</td>
       <td>3564</td>
       <td>0.120</td>
@@ -129,7 +129,7 @@ Hence, a naive synchronized pipeline will take 100s to finish 100 requests.
   </thead>
   <tbody>
     <tr>
-      <td><code>fda7f96</code></td>
+      <td><a href="https://github.com/gnes-ai/gnes@fda7f96"><code>fda7f96</code></a></td>
       <td>47.862</td>
       <td>50</td>
       <td>0.081</td>
@@ -176,7 +176,7 @@ The ideal roundtrip latency is `0`. The smaller the better.
   </thead>
   <tbody>
     <tr>
-      <td><code>51837cf</code></td>
+      <td><a href="https://github.com/gnes-ai/gnes@51837cf"><code>51837cf</code></a></td>
       <td>0.275</td>
       <td>3745</td>
       <td>0.119</td>
@@ -225,7 +225,7 @@ As `Router1` and `Router2` are parallel, a naive synchronized implementation wil
   </thead>
   <tbody>
     <tr>
-      <td><code>51837cf</code></td>
+      <td><a href="https://github.com/gnes-ai/gnes@51837cf"><code>51837cf</code></a></td>
       <td>22.166</td>
       <td>90</td>
       <td>0.061</td>

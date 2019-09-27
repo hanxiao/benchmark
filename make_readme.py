@@ -30,9 +30,9 @@ def load(id):
                      'version_tag', ],
             float_format='{:4.3f}'.format,
             formatters={
-                'version_vcs': lambda x: '<code>%s</code>' % x,
+                'version_vcs': lambda x: '<a href="GURL@%s"><code>%s</code></a>' % (x, x),
                 'version_tag': lambda x: '<code>%s</code>' % x,
-            })]
+            }).replace('GURL', 'https://github.com/gnes-ai/gnes')]
 
 
 results = [v for j in range(5) for v in load(j)]
