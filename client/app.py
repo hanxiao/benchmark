@@ -23,19 +23,20 @@ class MyClient(CLIClient):
         summary = {}
         with open('/workspace/network.json') as fp:
             infos = [Parse(v, gnes_pb2.Envelope()).routes for v in fp.readlines()[-num_effective_lines:]]
-            summary['f:send interval'] = [get_duration(infos[j][0].start_time, infos[j + 1][0].start_time) for j in
-                                          range(len(infos) - 1)]
-            summary['f:recv interval'] = [get_duration(infos[j][0].end_time, infos[j + 1][0].end_time) for j in
-                                          range(len(infos) - 1)]
-            summary['f->r1 trans'] = [get_duration(j[0].start_time, j[1].start_time) for j in infos]
-            summary['r1->r2 trans'] = [get_duration(j[1].end_time, j[2].start_time) for j in infos]
-            summary['r2->f trans'] = [get_duration(j[2].end_time, j[0].end_time) for j in infos]
+            summary['f:send'] = [get_duration(infos[j][0].start_time, infos[j + 1][0].start_time) for j in
+                                 range(len(infos) - 1)]
+            summary['f:recv'] = [get_duration(infos[j][0].end_time, infos[j + 1][0].end_time) for j in
+                                 range(len(infos) - 1)]
+            summary['f->r1:send'] = [get_duration(j[0].start_time, j[1].start_time) for j in infos]
+            summary['r1->r2:send'] = [get_duration(j[1].end_time, j[2].start_time) for j in infos]
+            summary['r2->f:send'] = [get_duration(j[2].end_time, j[0].end_time) for j in infos]
             summary['roundtrip'] = [get_duration(j[0].start_time, j[0].end_time) for j in infos]
+            summary['MB/s'] = [1000 / get_duration(j[0].start_time, j[0].end_time) for j in infos]
 
         print('%40s\t%6s\t%6s\t%6s\t%6s\t%6s' % ('measure', 'mean', 'std', 'median', 'max', 'min'))
 
         for k, v in summary.items():
-            print('%40s\t%3.3fs (+-%2.2f)\t%3.3fs\t%3.3fs\t%3.3fs' % (
+            print('%40s\t%3.3f (+-%2.2f)\t%3.3f\t%3.3f\t%3.3f' % (
                 k, np.mean(v), np.std(v), np.median(v), np.max(v), np.min(v)))
 
         return {k: np.mean(v) for k, v in summary.items()}
@@ -65,8 +66,13 @@ if __name__ == '__main__':
         worst = np.max([j[k] for j in all_summaries])
         best = np.min([j[k] for j in all_summaries])
         avg = np.mean([j[k] for j in all_summaries])
-        print('%40s\t%3.3fs\t%3.3fs\t%3.3fs' % (k, best, worst, avg))
-        final[k] = float(best)
+        if k == 'MB/s':
+            best, worst = int(worst), int(best)
+            print('%40s\t%5d\t%5d\t%5d' % (k, best, worst, avg))
+            final[k] = best
+        else:
+            print('%40s\t%3.3f\t%3.3f\t%3.3f' % (k, best, worst, avg))
+            final[k] = float(best)
 
     with open('/workspace/history%s.json' % os.environ.get('GNES_BENCHMARK_ID'), 'a', encoding='utf8') as fp:
         fp.write(json.dumps(final, ensure_ascii=False, sort_keys=True) + '\n')

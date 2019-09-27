@@ -1,8 +1,15 @@
 # Benchmarking GNES on Network Latency
 
-This repository tracks the network latency of different GNES versions. It gets updated when the [GNES master](https://github.com/gnes-ai/gnes) is updated or a new [GNES version is released](https://github.com/gnes-ai/gnes/releases). 
+This repository tracks the network latency over different GNES versions. As a part of CICD pipeline, this repo gets automatically updated when the [GNES master](https://github.com/gnes-ai/gnes) is updated or a new [GNES version is released](https://github.com/gnes-ai/gnes/releases). 
 
 Please don't change the content of this file manually, as it will be overwritten during the update anyway. 
+
+
+## Experimental Setup
+
+In this benchmark, we setup multiple workflows to represent typical pipelines in the everyday usage of GNES. We then do a "load testing" to determine the system's behavior under normal/peak conditions.
+
+All experiments use `gnes/gnes:{version}-alpine` as the base image. All microservices are simplified using `BaseRouter` and `BlockRouter`.  
 
 ## Run Test
 
@@ -12,14 +19,32 @@ For example, to run the [third test case](#case-3-parallel-non-blocking-flow) on
 export GNES_IMG_TAG=latest-alpine
 export GNES_BENCHMARK_ID=3
 
-make pull && make build && make test d=500 b=10 s=1000000 && make clean
+make pull && make build && make test d=1000 b=10 s=1000000 && make clean
 ```
 
-The client will generate 500 documents and send them in 10 batches, each document has the size of 1MB. Hence each request is about 50MB.
+The client will generate 1000 documents with the batch size of 10, which yields 100 requests in total. Each document has the size of 1MB. Hence each request is 10MB.
 
-Units are in millisecond, the smaller the better.
+## Explanation of the Table
 
-`version_vcs` corresponds to the `gnes-ai/gnes@` commit's SHA hash.
+Time units are in *seconds*, *the smaller the better*. Numbers are *the best average* over three runs.
+
+### Time-related metrics
+
+- `roundtrip`: the average latency in seconds for a request travel from `Frontend` and through the whole workflow and finally back to `Frontend`.
+- `MB/s`: megabyte per second (MB/s) is a unit of data transfer rate over the whole workflow.
+- `f:send`: the average latency in seconds between sending every two requests at the `Frontend`.
+- `f:recv`: the average latency in seconds between receiving every two requests at the `Frontend`.
+- `f->r1:send`: the average latency in seconds for `Router1` receiving a request sent from `Frontend`.
+- `r1->r2:send`: the average latency in seconds for `Router2` receiving a request sent from `Router1` (or all `Router1` from the last layer).
+- `r2->f:send`: the average latency in seconds for `Frontend` receiving a request sent from `Router2` (or all `Router2` from the last layer).
+
+### Meta information
+
+- `version_vcs`: corresponds to the `gnes-ai/gnes@` commit's SHA hash.
+- `version_tag`: corresponds to the version tag of a GNES docker image.
+- `timestamp_build`: timestamp when the docker image was built.
+- `timestamp_eval`: timestamp when the benchmark was evaluated.
+
 
 ## Case 1: Non-blocking Flow
 
@@ -31,33 +56,37 @@ The workflow is as follows:
 </a>
 </p>
 
+The ideal roundtrip latency is `0`. The smaller the better.
+
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>version_vcs</th>
-      <th>version_tag</th>
       <th>roundtrip</th>
-      <th>f:send interval</th>
-      <th>f:recv interval</th>
-      <th>f->r1 trans</th>
-      <th>r1->r2 trans</th>
-      <th>r2->f trans</th>
+      <th>MB/s</th>
+      <th>f:send</th>
+      <th>f:recv</th>
+      <th>f->r1:send</th>
+      <th>r1->r2:send</th>
+      <th>r2->f:send</th>
       <th>timestamp_build</th>
       <th>timestamp_eval</th>
+      <th>version_tag</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code>fda7f96</code></td>
-      <td><code>latest-alpine</code></td>
-      <td>0.250</td>
-      <td>0.107</td>
-      <td>0.091</td>
-      <td>0.056</td>
-      <td>0.041</td>
-      <td>0.148</td>
+      <td>0.286</td>
+      <td>3564</td>
+      <td>0.120</td>
+      <td>0.120</td>
+      <td>0.057</td>
+      <td>0.052</td>
+      <td>0.170</td>
       <td>2019-09-26 11:17:55</td>
-      <td>2019-09-26 11:37:08.995740</td>
+      <td>2019-09-27 06:48:53.675573</td>
+      <td><code>latest-alpine</code></td>
     </tr>
   </tbody>
 </table>
@@ -72,7 +101,9 @@ The workflow is as follows:
 </a>
 </p>
 
-It simulates a pipeline with uneven workload.
+It simulates a pipeline with uneven workload, `Router2` block the pipeline for 1s.
+
+Hence, a naive synchronized pipeline will take 100s to finish 100 requests.
 
 
 
@@ -80,29 +111,31 @@ It simulates a pipeline with uneven workload.
   <thead>
     <tr style="text-align: right;">
       <th>version_vcs</th>
-      <th>version_tag</th>
       <th>roundtrip</th>
-      <th>f:send interval</th>
-      <th>f:recv interval</th>
-      <th>f->r1 trans</th>
-      <th>r1->r2 trans</th>
-      <th>r2->f trans</th>
+      <th>MB/s</th>
+      <th>f:send</th>
+      <th>f:recv</th>
+      <th>f->r1:send</th>
+      <th>r1->r2:send</th>
+      <th>r2->f:send</th>
       <th>timestamp_build</th>
       <th>timestamp_eval</th>
+      <th>version_tag</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code>fda7f96</code></td>
-      <td><code>latest-alpine</code></td>
-      <td>24.579</td>
-      <td>0.072</td>
-      <td>1.028</td>
-      <td>0.039</td>
-      <td>23.490</td>
-      <td>0.040</td>
+      <td>47.862</td>
+      <td>50</td>
+      <td>0.081</td>
+      <td>1.030</td>
+      <td>0.050</td>
+      <td>46.735</td>
+      <td>0.055</td>
       <td>2019-09-26 11:17:55</td>
-      <td>2019-09-26 11:59:43.815398</td>
+      <td>2019-09-27 06:55:03.987385</td>
+      <td><code>latest-alpine</code></td>
     </tr>
   </tbody>
 </table>
@@ -117,6 +150,7 @@ The workflow is as follows:
 </a>
 </p>
 
+The ideal roundtrip latency is `0`. The smaller the better.
 
 
 
@@ -124,29 +158,31 @@ The workflow is as follows:
   <thead>
     <tr style="text-align: right;">
       <th>version_vcs</th>
-      <th>version_tag</th>
       <th>roundtrip</th>
-      <th>f:send interval</th>
-      <th>f:recv interval</th>
-      <th>f->r1 trans</th>
-      <th>r1->r2 trans</th>
-      <th>r2->f trans</th>
+      <th>MB/s</th>
+      <th>f:send</th>
+      <th>f:recv</th>
+      <th>f->r1:send</th>
+      <th>r1->r2:send</th>
+      <th>r2->f:send</th>
       <th>timestamp_build</th>
       <th>timestamp_eval</th>
+      <th>version_tag</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code>fda7f96</code></td>
-      <td><code>latest-alpine</code></td>
-      <td>0.281</td>
-      <td>0.121</td>
+      <td><code>51837cf</code></td>
+      <td>0.275</td>
+      <td>3745</td>
       <td>0.119</td>
-      <td>0.057</td>
-      <td>0.045</td>
-      <td>0.173</td>
-      <td>2019-09-26 11:17:55</td>
-      <td>2019-09-26 12:01:11.401479</td>
+      <td>0.119</td>
+      <td>0.053</td>
+      <td>0.044</td>
+      <td>0.169</td>
+      <td>2019-09-27 06:36:57</td>
+      <td>2019-09-27 06:58:13.617126</td>
+      <td><code>latest-alpine</code></td>
     </tr>
   </tbody>
 </table>
@@ -161,36 +197,39 @@ The workflow is as follows:
 </a>
 </p>
 
-It simulates a parallel pipeline with heavy workload.
+It simulates a parallel pipeline with heavy workload. Both `Router1` and `Router2` will block the pipeline for 1s.
 
+As `Router1` and `Router2` are parallel, a naive synchronized implementation will take 50s to finish 100 requests.
 
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>version_vcs</th>
-      <th>version_tag</th>
       <th>roundtrip</th>
-      <th>f:send interval</th>
-      <th>f:recv interval</th>
-      <th>f->r1 trans</th>
-      <th>r1->r2 trans</th>
-      <th>r2->f trans</th>
+      <th>MB/s</th>
+      <th>f:send</th>
+      <th>f:recv</th>
+      <th>f->r1:send</th>
+      <th>r1->r2:send</th>
+      <th>r2->f:send</th>
       <th>timestamp_build</th>
       <th>timestamp_eval</th>
+      <th>version_tag</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code>fda7f96</code></td>
+      <td><code>51837cf</code></td>
+      <td>22.166</td>
+      <td>90</td>
+      <td>0.061</td>
+      <td>0.522</td>
+      <td>21.040</td>
+      <td>0.058</td>
+      <td>0.057</td>
+      <td>2019-09-27 06:36:57</td>
+      <td>2019-09-27 07:02:55.439558</td>
       <td><code>latest-alpine</code></td>
-      <td>11.007</td>
-      <td>0.070</td>
-      <td>0.506</td>
-      <td>9.856</td>
-      <td>0.037</td>
-      <td>0.041</td>
-      <td>2019-09-26 11:17:55</td>
-      <td>2019-09-26 12:03:37.293088</td>
     </tr>
   </tbody>
 </table>
