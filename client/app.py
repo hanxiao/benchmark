@@ -10,6 +10,11 @@ from gnes.helper import get_duration
 from gnes.proto import gnes_pb2
 from google.protobuf.json_format import Parse
 
+# when using docker in docker (DinD), the following path must be used
+DIND_DATAFOLDER = '/workspace/benchmark/.data/'
+
+
+# DIND_DATAFOLDER='/workspace/'
 
 class MyClient(CLIClient):
 
@@ -21,7 +26,7 @@ class MyClient(CLIClient):
     def analyze(self):
         num_effective_lines = ceil(self.args.num_docs / self.args.batch_size)
         summary = {}
-        with open('/workspace/network.json') as fp:
+        with open(DIND_DATAFOLDER + 'network.json') as fp:
             infos = [Parse(v, gnes_pb2.Envelope()).routes for v in fp.readlines()[-num_effective_lines:]]
             summary['f:send'] = [get_duration(infos[j][0].start_time, infos[j + 1][0].start_time) for j in
                                  range(len(infos) - 1)]
@@ -74,5 +79,5 @@ if __name__ == '__main__':
             print('%40s\t%3.3f\t%3.3f\t%3.3f' % (k, best, worst, avg))
             final[k] = float(best)
 
-    with open('/workspace/history%s.json' % os.environ.get('GNES_BENCHMARK_ID'), 'a', encoding='utf8') as fp:
+    with open(DIND_DATAFOLDER + 'history%s.json' % os.environ.get('GNES_BENCHMARK_ID'), 'a', encoding='utf8') as fp:
         fp.write(json.dumps(final, ensure_ascii=False, sort_keys=True) + '\n')

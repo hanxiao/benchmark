@@ -2,8 +2,6 @@
 
 export GNES_IMG_TAG=latest-alpine
 
-cd /workspace/
-
 for EXP_ID in 1 2 ;
 do
     export GNES_BENCHMARK_ID=$EXP_ID

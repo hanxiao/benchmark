@@ -1,15 +1,20 @@
 import pandas as pd
 
+# when using docker in docker (DinD), the following path must be used
+DIND_DATAFOLDER = '/workspace/benchmark/'
+
+
+# DIND_DATAFOLDER = ''
 
 def load(id):
     if id == 0:
-        with open('.github/README-template.md') as fp:
+        with open(DIND_DATAFOLDER + '.github/README-template.md') as fp:
             return [fp.read()]
     else:
-        with open('.github/%d.md' % id) as fp:
+        with open(DIND_DATAFOLDER + '.github/%d.md' % id) as fp:
             c_md = fp.read()
 
-        bh = pd.read_json('.data/history%d.json' % id, lines=True)
+        bh = pd.read_json(DIND_DATAFOLDER + '.data/history%d.json' % id, lines=True)
         bh = bh.sort_values(by=['timestamp_build'])
 
         return [c_md, bh.to_html(
@@ -37,5 +42,5 @@ def load(id):
 
 results = [v for j in range(5) for v in load(j)]
 
-with open('README.md', 'w', encoding='utf8') as fp:
+with open(DIND_DATAFOLDER + 'README.md', 'w', encoding='utf8') as fp:
     fp.write('\n\n'.join(results))
