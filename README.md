@@ -15,16 +15,20 @@ All experiments use `gnes/gnes:{version}-alpine` as the base image. All microser
 
 ## Run Test
 
+> For the purpose of evaluating this benchmark in CICD pipeline, some environment 
+
 For example, to run the [third test case](#case-3-parallel-non-blocking-flow) on GNES version `latest-alpine`:  
 
 ```bash
 export GNES_IMG_TAG=latest-alpine
 export GNES_BENCHMARK_ID=3
 
-make pull && make build && make test d=1000 b=10 s=1000000 && make clean
+make pull && make build && make test d=500 b=10 s=1000000 && make clean
 ```
 
-The client will generate 1000 documents with the batch size of 10, which yields 100 requests in total. Each document has the size of 1MB. Hence each request is 10MB.
+The client will generate 500 documents with the batch size of 10, which yields 50 requests in total. Each document has the size of 1MB. Hence each request is 10MB.
+
+Due to the memory limit of our CD node (t2-micro, 1GB memory), we better keep the number of document in this way.
 
 ## Explanation of the Table
 
@@ -89,21 +93,8 @@ The ideal roundtrip latency is `0`. The smaller the better.
       <td>0.057</td>
       <td>0.052</td>
       <td>0.170</td>
-      <td>2019-09-26 11:17:55+00:00</td>
-      <td>2019-09-27 06:48:53.675573111</td>
-      <td><code>latest-alpine</code></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
-      <td>0.086</td>
-      <td>11751</td>
-      <td>0.008</td>
-      <td>0.005</td>
-      <td>0.007</td>
-      <td>0.002</td>
-      <td>0.005</td>
-      <td>2019-09-27 06:36:57+00:00</td>
-      <td>2019-09-27 09:01:20.673742056</td>
+      <td>2019-09-26 11:17:55</td>
+      <td>2019-09-27 06:48:53.675573</td>
       <td><code>latest-alpine</code></td>
     </tr>
   </tbody>
@@ -121,7 +112,7 @@ The workflow is as follows:
 
 It simulates a pipeline with uneven workload, `Router2` block the pipeline for 1s.
 
-Hence, a naive synchronized pipeline will take 100s to finish 100 requests.
+Hence, a naive synchronized pipeline will take 50s to finish 50 requests.
 
 ### Result
 
@@ -151,21 +142,8 @@ Hence, a naive synchronized pipeline will take 100s to finish 100 requests.
       <td>0.050</td>
       <td>46.735</td>
       <td>0.055</td>
-      <td>2019-09-26 11:17:55+00:00</td>
-      <td>2019-09-27 06:55:03.987385035</td>
-      <td><code>latest-alpine</code></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
-      <td>5.514</td>
-      <td>280</td>
-      <td>0.018</td>
-      <td>1.004</td>
-      <td>0.014</td>
-      <td>4.458</td>
-      <td>0.004</td>
-      <td>2019-09-27 06:36:57+00:00</td>
-      <td>2019-09-27 09:02:39.741998911</td>
+      <td>2019-09-26 11:17:55</td>
+      <td>2019-09-27 06:55:03.987385</td>
       <td><code>latest-alpine</code></td>
     </tr>
   </tbody>
@@ -211,8 +189,8 @@ The ideal roundtrip latency is `0`. The smaller the better.
       <td>0.053</td>
       <td>0.044</td>
       <td>0.169</td>
-      <td>2019-09-27 06:36:57+00:00</td>
-      <td>2019-09-27 06:58:13.617125988</td>
+      <td>2019-09-27 06:36:57</td>
+      <td>2019-09-27 06:58:13.617126</td>
       <td><code>latest-alpine</code></td>
     </tr>
   </tbody>
@@ -230,7 +208,7 @@ The workflow is as follows:
 
 It simulates a parallel pipeline with heavy workload. Both `Router1` and `Router2` will block the pipeline for 1s.
 
-As `Router1` and `Router2` are parallel, a naive synchronized implementation will take 50s to finish 100 requests.
+As `Router1` and `Router2` are parallel, a naive synchronized implementation will take 25s to finish 50 requests.
 
 ### Result
 
@@ -260,8 +238,8 @@ As `Router1` and `Router2` are parallel, a naive synchronized implementation wil
       <td>21.040</td>
       <td>0.058</td>
       <td>0.057</td>
-      <td>2019-09-27 06:36:57+00:00</td>
-      <td>2019-09-27 07:02:55.439558029</td>
+      <td>2019-09-27 06:36:57</td>
+      <td>2019-09-27 07:02:55.439558</td>
       <td><code>latest-alpine</code></td>
     </tr>
   </tbody>

@@ -23,10 +23,12 @@ For example, to run the [third test case](#case-3-parallel-non-blocking-flow) on
 export GNES_IMG_TAG=latest-alpine
 export GNES_BENCHMARK_ID=3
 
-make pull && make build && make test d=1000 b=10 s=1000000 && make clean
+make pull && make build && make test d=500 b=10 s=1000000 && make clean
 ```
 
-The client will generate 1000 documents with the batch size of 10, which yields 100 requests in total. Each document has the size of 1MB. Hence each request is 10MB.
+The client will generate 500 documents with the batch size of 10, which yields 50 requests in total. Each document has the size of 1MB. Hence each request is 10MB.
+
+Due to the memory limit of our CD node (t2-micro, 1GB memory), we better keep the number of document in this way.
 
 ## Explanation of the Table
 

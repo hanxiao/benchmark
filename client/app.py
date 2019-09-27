@@ -34,7 +34,7 @@ class MyClient(CLIClient):
             summary['r1->r2:send'] = [get_duration(j[1].end_time, j[2].start_time) for j in infos]
             summary['r2->f:send'] = [get_duration(j[2].end_time, j[0].end_time) for j in infos]
             summary['roundtrip'] = [get_duration(j[0].start_time, j[0].end_time) for j in infos]
-            summary['MB/s'] = [1000 / get_duration(j[0].start_time, j[0].end_time) for j in infos]
+            summary['MB/s'] = [self.args.num_docs / get_duration(j[0].start_time, j[0].end_time) for j in infos]
 
         print('%40s\t%6s\t%6s\t%6s\t%6s\t%6s' % ('measure', 'mean', 'std', 'median', 'max', 'min'))
 

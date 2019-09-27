@@ -3,7 +3,7 @@ import os
 import pandas as pd
 
 # when using docker in docker (DinD), the following path must be used
-BENCHMARK_DIR = os.environ.get('BENCHMARK_DIR', '')
+BENCHMARK_DIR = os.environ.get('BENCHMARK_DIR', './')
 
 
 def load(id):
