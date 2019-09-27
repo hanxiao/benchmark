@@ -24,7 +24,7 @@ class MyClient(CLIClient):
     def analyze(self):
         num_effective_lines = ceil(self.args.num_docs / self.args.batch_size)
         summary = {}
-        with open(os.path.join(BENCHMARK_DIR, ' .data/network.json')) as fp:
+        with open(os.path.join(BENCHMARK_DIR, '.data/network.json')) as fp:
             infos = [Parse(v, gnes_pb2.Envelope()).routes for v in fp.readlines()[-num_effective_lines:]]
             summary['f:send'] = [get_duration(infos[j][0].start_time, infos[j + 1][0].start_time) for j in
                                  range(len(infos) - 1)]
