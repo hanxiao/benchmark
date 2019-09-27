@@ -15,6 +15,8 @@ All experiments use `gnes/gnes:{version}-alpine` as the base image. All microser
 
 ## Run Test
 
+> For the purpose of evaluating this benchmark in CICD pipeline, some environment 
+
 For example, to run the [third test case](#case-3-parallel-non-blocking-flow) on GNES version `latest-alpine`:  
 
 ```bash
