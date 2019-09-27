@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 
-cd /workspace
-
-rm -rf benchmark
-
-git clone https://github.com/gnes-ai/benchmark.git
-
-cd benchmark
+cd /workspace && rm -rf benchmark && git clone https://github.com/gnes-ai/benchmark.git && cd benchmark
 
 export GNES_IMG_TAG=latest-alpine
 
@@ -16,6 +10,9 @@ do
     make pull && make build && make test d=100 b=10 s=10 && make clean
     make wait t=20
 done
+
+cat $BENCHMARK_DIR/.data/*.history
+cat $$BENCHMARK_DIR/README.md
 
 
 #for EXP_ID in 1 2 3 4 ;
