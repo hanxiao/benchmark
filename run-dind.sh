@@ -14,7 +14,7 @@ for EXP_ID in 1 2 ;
 do
     export GNES_BENCHMARK_ID=$EXP_ID
     make pull && make build && make test d=100 b=10 s=10 && make clean
-    make wait t=10
+    make wait t=20
 done
 
 
