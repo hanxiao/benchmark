@@ -15,6 +15,8 @@ def load(id):
         return [c_md, bh.to_html(
             index=False,
             escape=False,
+            border=0,
+            bold_rows=False,
             columns=['version_vcs',
                      'roundtrip',
                      'MB/s',

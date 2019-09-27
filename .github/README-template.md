@@ -1,5 +1,7 @@
 # Benchmarking GNES on Network Latency
 
+<a href="https://drone.gnes.ai/gnes-ai/gnes"><img src="https://drone.gnes.ai/api/badges/gnes-ai/gnes/status.svg" /></a>
+
 This repository tracks the network latency over different GNES versions. As a part of CICD pipeline, this repo gets automatically updated when the [GNES master](https://github.com/gnes-ai/gnes) is updated or a new [GNES version is released](https://github.com/gnes-ai/gnes/releases). 
 
 Please don't change the content of this file manually, as it will be overwritten during the update anyway. 

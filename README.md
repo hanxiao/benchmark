@@ -1,5 +1,7 @@
 # Benchmarking GNES on Network Latency
 
+<a href="https://drone.gnes.ai/gnes-ai/gnes"><img src="https://drone.gnes.ai/api/badges/gnes-ai/gnes/status.svg" /></a>
+
 This repository tracks the network latency over different GNES versions. As a part of CICD pipeline, this repo gets automatically updated when the [GNES master](https://github.com/gnes-ai/gnes) is updated or a new [GNES version is released](https://github.com/gnes-ai/gnes/releases). 
 
 Please don't change the content of this file manually, as it will be overwritten during the update anyway. 
@@ -58,7 +60,9 @@ The workflow is as follows:
 
 The ideal roundtrip latency is `0`. The smaller the better.
 
-<table border="1" class="dataframe">
+### Result
+
+<table border="0" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>version_vcs</th>
@@ -105,9 +109,9 @@ It simulates a pipeline with uneven workload, `Router2` block the pipeline for 1
 
 Hence, a naive synchronized pipeline will take 100s to finish 100 requests.
 
+### Result
 
-
-<table border="1" class="dataframe">
+<table border="0" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>version_vcs</th>
@@ -152,9 +156,9 @@ The workflow is as follows:
 
 The ideal roundtrip latency is `0`. The smaller the better.
 
+### Result
 
-
-<table border="1" class="dataframe">
+<table border="0" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>version_vcs</th>
@@ -201,7 +205,9 @@ It simulates a parallel pipeline with heavy workload. Both `Router1` and `Router
 
 As `Router1` and `Router2` are parallel, a naive synchronized implementation will take 50s to finish 100 requests.
 
-<table border="1" class="dataframe">
+### Result
+
+<table border="0" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>version_vcs</th>
