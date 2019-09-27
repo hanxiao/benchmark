@@ -46,3 +46,5 @@ Time units are in *seconds*, *the smaller the better*. Numbers are *the best ave
 - `version_tag`: corresponds to the version tag of a GNES docker image.
 - `timestamp_build`: timestamp when the docker image was built.
 - `timestamp_eval`: timestamp when the benchmark was evaluated.
+
+Table results are sorted by `timestamp_build` with the most recent build at first. 
