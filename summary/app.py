@@ -15,7 +15,9 @@ def load(id):
             c_md = fp.read()
 
         bh = pd.read_json(BENCHMARK_DIR + '.data/history%d.json' % id, lines=True)
-        bh = bh.sort_values(by=['timestamp_build'])
+        bh.sort_values(by=['timestamp_build'], inplace=True, ascending=False)
+        bh['timestamp_build'] = bh['timestamp_build'].dt.strftime('%Y-%m-%d %H:%M')
+        bh['timestamp_eval'] = bh['timestamp_eval'].dt.strftime('%Y-%m-%d %H:%M')
 
         return [c_md, bh.to_html(
             index=False,

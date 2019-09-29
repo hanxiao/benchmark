@@ -85,29 +85,16 @@ The ideal roundtrip latency is `0`. The smaller the better.
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
-      <td>0.155</td>
-      <td>3258</td>
-      <td>0.124</td>
-      <td>0.123</td>
-      <td>0.032</td>
-      <td>0.047</td>
-      <td>0.064</td>
-      <td>2019-09-27 06:36:57+00:00</td>
-      <td>2019-09-27 10:29:20.479615927</td>
-      <td><code>latest-alpine</code></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
-      <td>0.160</td>
-      <td>3166</td>
-      <td>0.128</td>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/cb4e46a"><code>cb4e46a</code></a></td>
+      <td>0.159</td>
+      <td>3182</td>
+      <td>0.127</td>
       <td>0.126</td>
       <td>0.031</td>
-      <td>0.050</td>
-      <td>0.067</td>
-      <td>2019-09-27 06:36:57+00:00</td>
-      <td>2019-09-27 10:44:13.799331903</td>
+      <td>0.047</td>
+      <td>0.068</td>
+      <td>2019-09-29 04:07</td>
+      <td>2019-09-29 04:34</td>
       <td><code>latest-alpine</code></td>
     </tr>
     <tr>
@@ -119,21 +106,34 @@ The ideal roundtrip latency is `0`. The smaller the better.
       <td>0.537</td>
       <td>0.478</td>
       <td>1.491</td>
-      <td>2019-09-27 11:05:51+00:00</td>
-      <td>2019-09-27 11:35:17.971560001</td>
+      <td>2019-09-27 11:05</td>
+      <td>2019-09-27 11:35</td>
       <td><code>latest-alpine</code></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/gnes-ai/gnes/commit/cb4e46a"><code>cb4e46a</code></a></td>
-      <td>0.159</td>
-      <td>3182</td>
-      <td>0.127</td>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
+      <td>0.155</td>
+      <td>3258</td>
+      <td>0.124</td>
+      <td>0.123</td>
+      <td>0.032</td>
+      <td>0.047</td>
+      <td>0.064</td>
+      <td>2019-09-27 06:36</td>
+      <td>2019-09-27 10:29</td>
+      <td><code>latest-alpine</code></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
+      <td>0.160</td>
+      <td>3166</td>
+      <td>0.128</td>
       <td>0.126</td>
       <td>0.031</td>
-      <td>0.047</td>
-      <td>0.068</td>
-      <td>2019-09-29 04:07:23+00:00</td>
-      <td>2019-09-29 04:34:17.550020933</td>
+      <td>0.050</td>
+      <td>0.067</td>
+      <td>2019-09-27 06:36</td>
+      <td>2019-09-27 10:44</td>
       <td><code>latest-alpine</code></td>
     </tr>
   </tbody>
@@ -173,29 +173,16 @@ Hence, a naive synchronized pipeline will take 50s to finish 50 requests.
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
-      <td>24.304</td>
-      <td>43</td>
-      <td>0.091</td>
-      <td>1.035</td>
-      <td>0.037</td>
-      <td>23.220</td>
-      <td>0.036</td>
-      <td>2019-09-27 06:36:57+00:00</td>
-      <td>2019-09-27 10:32:42.967658043</td>
-      <td><code>latest-alpine</code></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
-      <td>24.246</td>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/cb4e46a"><code>cb4e46a</code></a></td>
+      <td>24.255</td>
       <td>43</td>
       <td>0.092</td>
-      <td>1.035</td>
+      <td>1.034</td>
       <td>0.037</td>
-      <td>23.164</td>
-      <td>0.035</td>
-      <td>2019-09-27 06:36:57+00:00</td>
-      <td>2019-09-27 10:47:36.011617899</td>
+      <td>23.170</td>
+      <td>0.037</td>
+      <td>2019-09-29 04:07</td>
+      <td>2019-09-29 04:37</td>
       <td><code>latest-alpine</code></td>
     </tr>
     <tr>
@@ -207,21 +194,34 @@ Hence, a naive synchronized pipeline will take 50s to finish 50 requests.
       <td>0.099</td>
       <td>2.134</td>
       <td>0.341</td>
-      <td>2019-09-27 11:05:51+00:00</td>
-      <td>2019-09-27 11:39:50.737411976</td>
+      <td>2019-09-27 11:05</td>
+      <td>2019-09-27 11:39</td>
       <td><code>latest-alpine</code></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/gnes-ai/gnes/commit/cb4e46a"><code>cb4e46a</code></a></td>
-      <td>24.255</td>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
+      <td>24.304</td>
+      <td>43</td>
+      <td>0.091</td>
+      <td>1.035</td>
+      <td>0.037</td>
+      <td>23.220</td>
+      <td>0.036</td>
+      <td>2019-09-27 06:36</td>
+      <td>2019-09-27 10:32</td>
+      <td><code>latest-alpine</code></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
+      <td>24.246</td>
       <td>43</td>
       <td>0.092</td>
-      <td>1.034</td>
+      <td>1.035</td>
       <td>0.037</td>
-      <td>23.170</td>
-      <td>0.037</td>
-      <td>2019-09-29 04:07:23+00:00</td>
-      <td>2019-09-29 04:37:39.605056047</td>
+      <td>23.164</td>
+      <td>0.035</td>
+      <td>2019-09-27 06:36</td>
+      <td>2019-09-27 10:47</td>
       <td><code>latest-alpine</code></td>
     </tr>
   </tbody>
@@ -259,29 +259,16 @@ The ideal roundtrip latency is `0`. The smaller the better.
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
-      <td>0.157</td>
-      <td>3221</td>
-      <td>0.126</td>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/cb4e46a"><code>cb4e46a</code></a></td>
+      <td>0.156</td>
+      <td>3255</td>
       <td>0.125</td>
-      <td>0.032</td>
-      <td>0.053</td>
-      <td>0.062</td>
-      <td>2019-09-27 06:36:57+00:00</td>
-      <td>2019-09-27 10:34:00.315649986</td>
-      <td><code>latest-alpine</code></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
-      <td>0.159</td>
-      <td>3181</td>
-      <td>0.128</td>
-      <td>0.126</td>
-      <td>0.032</td>
-      <td>0.055</td>
+      <td>0.124</td>
+      <td>0.031</td>
+      <td>0.052</td>
       <td>0.063</td>
-      <td>2019-09-27 06:36:57+00:00</td>
-      <td>2019-09-27 10:48:53.461021900</td>
+      <td>2019-09-29 04:07</td>
+      <td>2019-09-29 04:38</td>
       <td><code>latest-alpine</code></td>
     </tr>
     <tr>
@@ -293,21 +280,34 @@ The ideal roundtrip latency is `0`. The smaller the better.
       <td>0.351</td>
       <td>0.300</td>
       <td>0.953</td>
-      <td>2019-09-27 11:05:51+00:00</td>
-      <td>2019-09-27 11:43:46.868346930</td>
+      <td>2019-09-27 11:05</td>
+      <td>2019-09-27 11:43</td>
       <td><code>latest-alpine</code></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/gnes-ai/gnes/commit/cb4e46a"><code>cb4e46a</code></a></td>
-      <td>0.156</td>
-      <td>3255</td>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
+      <td>0.157</td>
+      <td>3221</td>
+      <td>0.126</td>
       <td>0.125</td>
-      <td>0.124</td>
-      <td>0.031</td>
-      <td>0.052</td>
+      <td>0.032</td>
+      <td>0.053</td>
+      <td>0.062</td>
+      <td>2019-09-27 06:36</td>
+      <td>2019-09-27 10:34</td>
+      <td><code>latest-alpine</code></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
+      <td>0.159</td>
+      <td>3181</td>
+      <td>0.128</td>
+      <td>0.126</td>
+      <td>0.032</td>
+      <td>0.055</td>
       <td>0.063</td>
-      <td>2019-09-29 04:07:23+00:00</td>
-      <td>2019-09-29 04:38:57.346159935</td>
+      <td>2019-09-27 06:36</td>
+      <td>2019-09-27 10:48</td>
       <td><code>latest-alpine</code></td>
     </tr>
   </tbody>
@@ -347,29 +347,16 @@ As `Router1` and `Router2` are parallel, a naive synchronized implementation wil
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
-      <td>11.834</td>
-      <td>76</td>
-      <td>0.074</td>
-      <td>0.508</td>
-      <td>10.759</td>
-      <td>0.030</td>
-      <td>0.033</td>
-      <td>2019-09-27 06:36:57+00:00</td>
-      <td>2019-09-27 10:36:05.778395891</td>
-      <td><code>latest-alpine</code></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
-      <td>11.856</td>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/cb4e46a"><code>cb4e46a</code></a></td>
+      <td>11.820</td>
       <td>75</td>
-      <td>0.075</td>
-      <td>0.509</td>
-      <td>10.783</td>
+      <td>0.073</td>
+      <td>0.507</td>
+      <td>10.742</td>
       <td>0.031</td>
-      <td>0.033</td>
-      <td>2019-09-27 06:36:57+00:00</td>
-      <td>2019-09-27 10:51:00.759022951</td>
+      <td>0.038</td>
+      <td>2019-09-29 04:07</td>
+      <td>2019-09-29 04:41</td>
       <td><code>latest-alpine</code></td>
     </tr>
     <tr>
@@ -381,21 +368,34 @@ As `Router1` and `Router2` are parallel, a naive synchronized implementation wil
       <td>0.837</td>
       <td>0.344</td>
       <td>0.289</td>
-      <td>2019-09-27 11:05:51+00:00</td>
-      <td>2019-09-27 11:48:18.011820078</td>
+      <td>2019-09-27 11:05</td>
+      <td>2019-09-27 11:48</td>
       <td><code>latest-alpine</code></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/gnes-ai/gnes/commit/cb4e46a"><code>cb4e46a</code></a></td>
-      <td>11.820</td>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
+      <td>11.834</td>
+      <td>76</td>
+      <td>0.074</td>
+      <td>0.508</td>
+      <td>10.759</td>
+      <td>0.030</td>
+      <td>0.033</td>
+      <td>2019-09-27 06:36</td>
+      <td>2019-09-27 10:36</td>
+      <td><code>latest-alpine</code></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/51837cf"><code>51837cf</code></a></td>
+      <td>11.856</td>
       <td>75</td>
-      <td>0.073</td>
-      <td>0.507</td>
-      <td>10.742</td>
+      <td>0.075</td>
+      <td>0.509</td>
+      <td>10.783</td>
       <td>0.031</td>
-      <td>0.038</td>
-      <td>2019-09-29 04:07:23+00:00</td>
-      <td>2019-09-29 04:41:02.795464039</td>
+      <td>0.033</td>
+      <td>2019-09-27 06:36</td>
+      <td>2019-09-27 10:51</td>
       <td><code>latest-alpine</code></td>
     </tr>
   </tbody>
