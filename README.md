@@ -67,6 +67,14 @@ The ideal roundtrip latency is `0`. The smaller the better.
 
 ### Result
 
+<p align="center">
+<a href="https://gnes.ai">
+<img src=".github/data-rate-1.svg" alt="workflow 1 in test" width=60%>
+</a>
+</p>
+
+
+
 <table border="0" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -155,6 +163,14 @@ Hence, a naive synchronized pipeline will take 50s to finish 50 requests.
 
 ### Result
 
+<p align="center">
+<a href="https://gnes.ai">
+<img src=".github/data-rate-2.svg" alt="workflow 1 in test" width=60%>
+</a>
+</p>
+
+
+
 <table border="0" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -240,6 +256,14 @@ The workflow is as follows:
 The ideal roundtrip latency is `0`. The smaller the better.
 
 ### Result
+
+<p align="center">
+<a href="https://gnes.ai">
+<img src=".github/data-rate-3.svg" alt="workflow 1 in test" width=60%>
+</a>
+</p>
+
+
 
 <table border="0" class="dataframe">
   <thead>
@@ -328,6 +352,14 @@ It simulates a parallel pipeline with heavy workload. Both `Router1` and `Router
 As `Router1` and `Router2` are parallel, a naive synchronized implementation will take 25s to finish 50 requests.
 
 ### Result
+
+<p align="center">
+<a href="https://gnes.ai">
+<img src=".github/data-rate-4.svg" alt="workflow 1 in test" width=60%>
+</a>
+</p>
+
+
 
 <table border="0" class="dataframe">
   <thead>
