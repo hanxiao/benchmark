@@ -19,7 +19,7 @@ def load(id):
         plt.close('all')
         plt.plot(bh['version_vcs'], bh['MB/s'], marker='.', markersize=12)
         plt.title('data rate (MB/s) over different GNES versions')
-        plt.savefig('.github/data-rate-%d.svg' % id)
+        plt.savefig(BENCHMARK_DIR + '.github/data-rate-%d.svg' % id)
         bh.sort_values(by=['timestamp_build'], inplace=True, ascending=False)
         bh['timestamp_build'] = bh['timestamp_build'].dt.strftime('%Y-%m-%d %H:%M')
         bh['timestamp_eval'] = bh['timestamp_eval'].dt.strftime('%Y-%m-%d %H:%M')
