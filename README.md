@@ -93,6 +93,19 @@ The ideal roundtrip latency is `0`. The smaller the better.
   </thead>
   <tbody>
     <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/a5b40c1"><code>a5b40c1</code></a></td>
+      <td>0.259</td>
+      <td>2012</td>
+      <td>0.133</td>
+      <td>0.129</td>
+      <td>0.040</td>
+      <td>0.052</td>
+      <td>0.164</td>
+      <td>2019-10-11 07:31</td>
+      <td>2019-10-11 07:58</td>
+      <td><code>v0.0.44-alpine</code></td>
+    </tr>
+    <tr>
       <td><a href="https://github.com/gnes-ai/gnes/commit/8ca5ef0"><code>8ca5ef0</code></a></td>
       <td>0.256</td>
       <td>2035</td>
@@ -332,6 +345,19 @@ Hence, a naive synchronized pipeline will take 50s to finish 50 requests.
   </thead>
   <tbody>
     <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/a5b40c1"><code>a5b40c1</code></a></td>
+      <td>24.221</td>
+      <td>43</td>
+      <td>0.096</td>
+      <td>1.036</td>
+      <td>0.040</td>
+      <td>23.131</td>
+      <td>0.036</td>
+      <td>2019-10-11 07:31</td>
+      <td>2019-10-11 08:01</td>
+      <td><code>v0.0.44-alpine</code></td>
+    </tr>
+    <tr>
       <td><a href="https://github.com/gnes-ai/gnes/commit/8ca5ef0"><code>8ca5ef0</code></a></td>
       <td>24.227</td>
       <td>43</td>
@@ -568,6 +594,19 @@ The ideal roundtrip latency is `0`. The smaller the better.
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/a5b40c1"><code>a5b40c1</code></a></td>
+      <td>0.263</td>
+      <td>1974</td>
+      <td>0.135</td>
+      <td>0.131</td>
+      <td>0.042</td>
+      <td>0.052</td>
+      <td>0.164</td>
+      <td>2019-10-11 07:31</td>
+      <td>2019-10-11 08:02</td>
+      <td><code>v0.0.44-alpine</code></td>
+    </tr>
     <tr>
       <td><a href="https://github.com/gnes-ai/gnes/commit/8ca5ef0"><code>8ca5ef0</code></a></td>
       <td>0.265</td>
@@ -807,6 +846,19 @@ As `Router1` and `Router2` are parallel, a naive synchronized implementation wil
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/a5b40c1"><code>a5b40c1</code></a></td>
+      <td>11.721</td>
+      <td>75</td>
+      <td>0.076</td>
+      <td>0.508</td>
+      <td>10.644</td>
+      <td>0.030</td>
+      <td>0.037</td>
+      <td>2019-10-11 07:31</td>
+      <td>2019-10-11 08:04</td>
+      <td><code>v0.0.44-alpine</code></td>
+    </tr>
     <tr>
       <td><a href="https://github.com/gnes-ai/gnes/commit/8ca5ef0"><code>8ca5ef0</code></a></td>
       <td>11.759</td>
