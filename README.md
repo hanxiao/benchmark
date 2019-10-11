@@ -69,7 +69,7 @@ The ideal roundtrip latency is `0`. The smaller the better.
 
 <p align="center">
 <a href="https://gnes.ai">
-<img src=".github/data-rate-1.svg" alt="workflow 1 in test" width=60%>
+<img src=".github/data-rate-1.svg" alt="workflow 1 in test" width=90%>
 </a>
 </p>
 
@@ -92,6 +92,19 @@ The ideal roundtrip latency is `0`. The smaller the better.
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/8ca5ef0"><code>8ca5ef0</code></a></td>
+      <td>0.256</td>
+      <td>2035</td>
+      <td>0.132</td>
+      <td>0.127</td>
+      <td>0.040</td>
+      <td>0.051</td>
+      <td>0.161</td>
+      <td>2019-10-11 05:48</td>
+      <td>2019-10-11 06:15</td>
+      <td><code>latest-alpine</code></td>
+    </tr>
     <tr>
       <td><a href="https://github.com/gnes-ai/gnes/commit/f7e7791"><code>f7e7791</code></a></td>
       <td>3.300</td>
@@ -295,7 +308,7 @@ Hence, a naive synchronized pipeline will take 50s to finish 50 requests.
 
 <p align="center">
 <a href="https://gnes.ai">
-<img src=".github/data-rate-2.svg" alt="workflow 1 in test" width=60%>
+<img src=".github/data-rate-2.svg" alt="workflow 1 in test" width=90%>
 </a>
 </p>
 
@@ -318,6 +331,19 @@ Hence, a naive synchronized pipeline will take 50s to finish 50 requests.
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/8ca5ef0"><code>8ca5ef0</code></a></td>
+      <td>24.227</td>
+      <td>43</td>
+      <td>0.096</td>
+      <td>1.036</td>
+      <td>0.040</td>
+      <td>23.135</td>
+      <td>0.036</td>
+      <td>2019-10-11 05:48</td>
+      <td>2019-10-11 06:18</td>
+      <td><code>latest-alpine</code></td>
+    </tr>
     <tr>
       <td><a href="https://github.com/gnes-ai/gnes/commit/f7e7791"><code>f7e7791</code></a></td>
       <td>24.435</td>
@@ -519,7 +545,7 @@ The ideal roundtrip latency is `0`. The smaller the better.
 
 <p align="center">
 <a href="https://gnes.ai">
-<img src=".github/data-rate-3.svg" alt="workflow 1 in test" width=60%>
+<img src=".github/data-rate-3.svg" alt="workflow 1 in test" width=90%>
 </a>
 </p>
 
@@ -542,6 +568,19 @@ The ideal roundtrip latency is `0`. The smaller the better.
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/8ca5ef0"><code>8ca5ef0</code></a></td>
+      <td>0.265</td>
+      <td>1962</td>
+      <td>0.136</td>
+      <td>0.132</td>
+      <td>0.042</td>
+      <td>0.054</td>
+      <td>0.165</td>
+      <td>2019-10-11 05:48</td>
+      <td>2019-10-11 06:19</td>
+      <td><code>latest-alpine</code></td>
+    </tr>
     <tr>
       <td><a href="https://github.com/gnes-ai/gnes/commit/f7e7791"><code>f7e7791</code></a></td>
       <td>3.383</td>
@@ -745,7 +784,7 @@ As `Router1` and `Router2` are parallel, a naive synchronized implementation wil
 
 <p align="center">
 <a href="https://gnes.ai">
-<img src=".github/data-rate-4.svg" alt="workflow 1 in test" width=60%>
+<img src=".github/data-rate-4.svg" alt="workflow 1 in test" width=90%>
 </a>
 </p>
 
@@ -768,6 +807,19 @@ As `Router1` and `Router2` are parallel, a naive synchronized implementation wil
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/8ca5ef0"><code>8ca5ef0</code></a></td>
+      <td>11.759</td>
+      <td>75</td>
+      <td>0.077</td>
+      <td>0.508</td>
+      <td>10.681</td>
+      <td>0.030</td>
+      <td>0.032</td>
+      <td>2019-10-11 05:48</td>
+      <td>2019-10-11 06:21</td>
+      <td><code>latest-alpine</code></td>
+    </tr>
     <tr>
       <td><a href="https://github.com/gnes-ai/gnes/commit/f7e7791"><code>f7e7791</code></a></td>
       <td>11.948</td>
