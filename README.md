@@ -93,6 +93,19 @@ The ideal roundtrip latency is `0`. The smaller the better.
   </thead>
   <tbody>
     <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/14cffe3"><code>14cffe3</code></a></td>
+      <td>0.199</td>
+      <td>2733</td>
+      <td>0.135</td>
+      <td>0.131</td>
+      <td>0.043</td>
+      <td>0.052</td>
+      <td>0.099</td>
+      <td>2019-11-06 11:13</td>
+      <td>2019-11-06 11:40</td>
+      <td><code>latest-alpine</code></td>
+    </tr>
+    <tr>
       <td><a href="https://github.com/gnes-ai/gnes/commit/ca20463"><code>ca20463</code></a></td>
       <td>0.197</td>
       <td>2760</td>
@@ -709,6 +722,19 @@ Hence, a naive synchronized pipeline will take 50s to finish 50 requests.
   </thead>
   <tbody>
     <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/14cffe3"><code>14cffe3</code></a></td>
+      <td>24.220</td>
+      <td>43</td>
+      <td>0.096</td>
+      <td>1.035</td>
+      <td>0.038</td>
+      <td>23.133</td>
+      <td>0.037</td>
+      <td>2019-11-06 11:13</td>
+      <td>2019-11-06 11:44</td>
+      <td><code>latest-alpine</code></td>
+    </tr>
+    <tr>
       <td><a href="https://github.com/gnes-ai/gnes/commit/ca20463"><code>ca20463</code></a></td>
       <td>24.176</td>
       <td>43</td>
@@ -1322,6 +1348,19 @@ The ideal roundtrip latency is `0`. The smaller the better.
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/14cffe3"><code>14cffe3</code></a></td>
+      <td>0.204</td>
+      <td>2691</td>
+      <td>0.137</td>
+      <td>0.133</td>
+      <td>0.046</td>
+      <td>0.053</td>
+      <td>0.100</td>
+      <td>2019-11-06 11:13</td>
+      <td>2019-11-06 11:45</td>
+      <td><code>latest-alpine</code></td>
+    </tr>
     <tr>
       <td><a href="https://github.com/gnes-ai/gnes/commit/ca20463"><code>ca20463</code></a></td>
       <td>0.203</td>
@@ -1938,6 +1977,19 @@ As `Router1` and `Router2` are parallel, a naive synchronized implementation wil
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><a href="https://github.com/gnes-ai/gnes/commit/14cffe3"><code>14cffe3</code></a></td>
+      <td>11.719</td>
+      <td>76</td>
+      <td>0.077</td>
+      <td>0.508</td>
+      <td>10.642</td>
+      <td>0.031</td>
+      <td>0.035</td>
+      <td>2019-11-06 11:13</td>
+      <td>2019-11-06 11:47</td>
+      <td><code>latest-alpine</code></td>
+    </tr>
     <tr>
       <td><a href="https://github.com/gnes-ai/gnes/commit/ca20463"><code>ca20463</code></a></td>
       <td>11.722</td>
